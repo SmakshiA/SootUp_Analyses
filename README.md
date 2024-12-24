@@ -51,7 +51,7 @@ Graphviz: Required for visualizing graphs.
       <li>
         Open a terminal and navigate to the directory containing your source:
         <br>
-        <code>cd "path/to/source/directory"</code>
+        <code>cd "path/to/source/directory/of/the/respective/analysis/in/the/resources"</code>
       </li>
       <li>
         Compile the file using:
@@ -65,7 +65,7 @@ Graphviz: Required for visualizing graphs.
   <li>
     <strong>Move the Compiled File:</strong> Move the generated <code>.class</code> file into the binary directory:
     <br>
-    <code>mv TestFile.class "path/to/binary/directory"</code>
+    <code>mv TestFile.class "path/to/binary/directory/of/the/respective/analysis/in/the/resources"</code>
   </li>
   <li>
     <strong>Update the Code:</strong>
