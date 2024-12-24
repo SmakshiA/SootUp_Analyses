@@ -1,4 +1,7 @@
 <h1>Installation Guide</h1>
+<p>
+In our repository, we have only included the sootup.examples folder and other necessary resources. To run it, first install SootUp, and then replace the existing sootup.examples folder with this new one.
+</p>
 
 <h2>Prerequisites</h2>
 <p>
