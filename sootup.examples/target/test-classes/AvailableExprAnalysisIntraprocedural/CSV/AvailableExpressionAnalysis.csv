@@ -1,0 +1,12 @@
+Line Number,Statement,Available Expressions
+4,int b=3;,[]
+5,int x=a+b;,[a + b]
+3,int a= 2;,[]
+14,},[a + b]
+9,while(y>a+b){,[a + b]
+12,x=a+b;,[a + b]
+6,int y=a*b;,[a + b, a * b]
+3,int a= 2;,[]
+11,a=a+1;,[]
+9,while(y>a+b){,[a + b]
+12,x=a+b;,[a + b]

@@ -1,0 +1,4 @@
+Line Number,Statement,Live Variables
+8,System.out.println(a*b); // expected - [a b],a, b
+9,r(); // expected - [],
+10,},

@@ -1,0 +1,21 @@
+digraph CFG {
+node [shape=box];
+stmt3 [label="Line 3\nargs := @parameter0: java.lang.String[]\nAvailable Expressions: []"];
+stmt3 [label="Line 3\na = 2\nAvailable Expressions: []"];
+stmt4 [label="Line 4\nb = 3\nAvailable Expressions: []"];
+stmt3 -> stmt4;
+stmt5 [label="Line 5\nx = a + b\nAvailable Expressions: [a+b]"];
+stmt4 -> stmt5;
+stmt6 [label="Line 6\ny = a * b\nAvailable Expressions: [a+b,a*b]"];
+stmt5 -> stmt6;
+stmt9 [label="Line 9\n$stack5 = a + b\nAvailable Expressions: [a+b]"];
+stmt6 -> stmt9;
+stmt12 -> stmt9;
+stmt9 [label="Line 9\nif y <= $stack5\nAvailable Expressions: [a+b]"];
+stmt11 [label="Line 11\na = a + 1\nAvailable Expressions: []"];
+stmt9 -> stmt11;
+stmt12 [label="Line 12\nx = a + b\nAvailable Expressions: [a+b]"];
+stmt11 -> stmt12;
+stmt14 [label="Line 14\nreturn\nAvailable Expressions: [a+b]"];
+stmt9 -> stmt14;
+}

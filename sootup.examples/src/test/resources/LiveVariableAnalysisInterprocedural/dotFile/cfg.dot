@@ -1,0 +1,18 @@
+digraph CFG {
+    node [shape=rectangle];
+    "this := @this: Test1" [label="Line 8: System.out.println(a*b); // expected - [a b]\nthis := @this: Test1\nLive variables: [a, b]"];
+    "$stack4 = <java.lang.System: java.io.PrintStream out>" [label="Line 8: System.out.println(a*b); // expected - [a b]\n$stack4 = <java.lang.System: java.io.PrintStream out>\nLive variables: [a, b]"];
+    "$stack1 = this.<Test1: int a>" [label="Line 8: System.out.println(a*b); // expected - [a b]\n$stack1 = this.<Test1: int a>\nLive variables: [a, b]"];
+    "$stack2 = this.<Test1: int b>" [label="Line 8: System.out.println(a*b); // expected - [a b]\n$stack2 = this.<Test1: int b>\nLive variables: [b]"];
+    "$stack3 = $stack1 * $stack2" [label="Line 8: System.out.println(a*b); // expected - [a b]\n$stack3 = $stack1 * $stack2\nLive variables: []"];
+    "virtualinvoke $stack4.<java.io.PrintStream: void println(int)>($stack3)" [label="Line 8: System.out.println(a*b); // expected - [a b]\nvirtualinvoke $stack4.<java.io.PrintStream: void println(int)>($stack3)\nLive variables: []"];
+    "virtualinvoke this.<Test1: void r()>()" [label="Line 9: r(); // expected - []\nvirtualinvoke this.<Test1: void r()>()\nLive variables: []"];
+    "return" [label="Line 10: }\nreturn\nLive variables: []"];
+    "this := @this: Test1" -> "$stack4 = <java.lang.System: java.io.PrintStream out>";
+    "$stack4 = <java.lang.System: java.io.PrintStream out>" -> "$stack1 = this.<Test1: int a>";
+    "$stack1 = this.<Test1: int a>" -> "$stack2 = this.<Test1: int b>";
+    "$stack2 = this.<Test1: int b>" -> "$stack3 = $stack1 * $stack2";
+    "$stack3 = $stack1 * $stack2" -> "virtualinvoke $stack4.<java.io.PrintStream: void println(int)>($stack3)";
+    "virtualinvoke $stack4.<java.io.PrintStream: void println(int)>($stack3)" -> "virtualinvoke this.<Test1: void r()>()";
+    "virtualinvoke this.<Test1: void r()>()" -> "return";
+}

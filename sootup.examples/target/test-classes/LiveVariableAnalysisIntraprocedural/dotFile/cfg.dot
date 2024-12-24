@@ -1,0 +1,21 @@
+digraph CFG {
+    node [shape=rectangle];
+    "args := @parameter0: java.lang.String[]" [label="Line: 3 \n Live vars: []\nargs := @parameter0: java.lang.String[]"];
+    "a = 5" [label="Line: 3 \n Live vars: []\na = 5"];
+    "b = 10" [label="Line: 4 \n Live vars: [a]\nb = 10"];
+    "sum = a + b" [label="Line: 5 \n Live vars: [a, b]\nsum = a + b"];
+    "if b <= 5" [label="Line: 7 \n Live vars: [a, b, sum]\nif b <= 5"];
+    "diff = b - a" [label="Line: 8 \n Live vars: [a, b, sum]\ndiff = b - a"];
+    "virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(diff)" [label="Line: 9 \n Live vars: [sum, diff]\nvirtualinvoke $stack6.<java.io.PrintStream: void println(int)>(diff)"];
+    "virtualinvoke $stack5.<java.io.PrintStream: void println(int)>(sum)" [label="Line: 12 \n Live vars: [sum]\nvirtualinvoke $stack5.<java.io.PrintStream: void println(int)>(sum)"];
+    "return" [label="Line: 13 \n Live vars: []\nreturn"];
+    "args := @parameter0: java.lang.String[]" -> "a = 5";
+    "a = 5" -> "b = 10";
+    "b = 10" -> "sum = a + b";
+    "sum = a + b" -> "if b <= 5";
+    "if b <= 5" -> "diff = b - a";
+    "if b <= 5" -> "virtualinvoke $stack5.<java.io.PrintStream: void println(int)>(sum)";
+    "diff = b - a" -> "virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(diff)";
+    "virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(diff)" -> "virtualinvoke $stack5.<java.io.PrintStream: void println(int)>(sum)";
+    "virtualinvoke $stack5.<java.io.PrintStream: void println(int)>(sum)" -> "return";
+}

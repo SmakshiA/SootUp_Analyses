@@ -1,0 +1,25 @@
+digraph CFG {
+node [shape=box];
+"Node0" [label="Line 3: args := @parameter0: java.lang.String[]\n[]"];
+"Node1" [label="Line 3: a = 2\n[]"];
+"Node2" [label="Line 4: b = 3\n[]"];
+"Node3" [label="Line 5: x = a + b\n[a + b, a * b]"];
+"Node4" [label="Line 6: y = a * b\n[a + b, a * b]"];
+"Node5" [label="Line 8: $stack5 = a + b\n[a + b]"];
+"Node6" [label="Line 8: if y <= $stack5\n[]"];
+"Node7" [label="Line 9: a = a + 1\n[a + 1]"];
+"Node8" [label="Line 10: x = a + b\n[a + b]"];
+"Node9" [label="Line 10: goto\n[a + b]"];
+"Node10" [label="Line 13: return\n[]"];
+"Node0" -> "Node1";
+"Node1" -> "Node2";
+"Node2" -> "Node3";
+"Node3" -> "Node4";
+"Node4" -> "Node5";
+"Node5" -> "Node6";
+"Node6" -> "Node7";
+"Node6" -> "Node10";
+"Node7" -> "Node8";
+"Node8" -> "Node9";
+"Node9" -> "Node5";
+}

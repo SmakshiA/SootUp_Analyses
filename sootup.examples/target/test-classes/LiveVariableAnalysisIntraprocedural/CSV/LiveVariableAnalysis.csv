@@ -1,0 +1,9 @@
+Line Number,Statement,Live Variables
+3,int a = 5;
+4,int b = 10;->a
+5,int sum = a + b;->a, b
+7,if (b > 5) {->a, b, sum
+8,int diff = b - a;->a, b, sum
+9,System.out.println(diff);->sum, diff
+12,System.out.println(sum);->sum
+13,}

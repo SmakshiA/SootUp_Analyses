@@ -1,0 +1,9 @@
+Line Number,Statement,Anticipable Expressions
+3,int a=2; // expected - [],
+4,int b=3; // expected - [],
+5,int x=a+b; // expected - [a+b a*b],a + b, a * b
+6,int y=a*b; // expected - [a+b a*b],a + b, a * b
+8,while(y>a+b){ // expected - [a+b],a + b
+9,a=a+1; // expected - [a+1],a + 1
+10,x=a+b; // expected - [a+b],a + b
+13,},
