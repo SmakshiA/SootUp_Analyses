@@ -1,4 +1,4 @@
-<h1><em>Installation Guide</em></h1>
+<h1><b>Installation Guide</b></h1>
 Prerequisites
 Java Environment: Install Java JDK 8u421.
 <br>
