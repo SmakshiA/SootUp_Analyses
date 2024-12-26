@@ -1,0 +1,57 @@
+digraph CFG {
+    node [shape=rectangle];
+"args := @parameter0: java.lang.String[]" [label="Line : 6 
+ args := @parameter0: java.lang.String[]
+Reaching Defs: []"];
+"a = 4" [label="Line : 6 
+ a = 4
+Reaching Defs: []"];
+"b = 2" [label="Line : 7 
+ b = 2
+Reaching Defs: [a = 4]"];
+"c = 3" [label="Line : 8 
+ c = 3
+Reaching Defs: [a = 4, b = 2]"];
+"m = c * 2" [label="Line : 9 
+ m = c * 2
+Reaching Defs: [c = 3, a = 4, b = 2]"];
+"if a > m" [label="Line : 10 
+ if a > m
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2]"];
+"a = a + 1" [label="Line : 11 
+ a = a + 1
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2]"];
+"goto" [label="Line : 11 
+ goto
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2, a = a + 1]"];
+"if a >= 12" [label="Line : 13 
+ if a >= 12
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2]"];
+"t1 = a + b" [label="Line : 14 
+ t1 = a + b
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2]"];
+"a = t1 + c" [label="Line : 15 
+ a = t1 + c
+Reaching Defs: [c = 3, a = 4, b = 2, m = c * 2, t1 = a + b]"];
+"virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(a)" [label="Line : 17 
+ virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(a)
+Reaching Defs: [c = 3, a = 4, b = 2, a = t1 + c, m = c * 2, a = a + 1, t1 = a + b]"];
+"return" [label="Line : 18 
+ return
+Reaching Defs: [c = 3, a = 4, b = 2, a = t1 + c, m = c * 2, a = a + 1, t1 = a + b]"];
+    "args := @parameter0: java.lang.String[]" -> "a = 4";
+    "a = 4" -> "b = 2";
+    "b = 2" -> "c = 3";
+    "c = 3" -> "m = c * 2";
+    "m = c * 2" -> "if a > m";
+    "if a > m" -> "a = a + 1";
+    "if a > m" -> "if a >= 12";
+    "a = a + 1" -> "goto";
+    "goto" -> "$stack6 = <java.lang.System: java.io.PrintStream out>";
+    "if a >= 12" -> "t1 = a + b";
+    "if a >= 12" -> "$stack6 = <java.lang.System: java.io.PrintStream out>";
+    "t1 = a + b" -> "a = t1 + c";
+    "a = t1 + c" -> "$stack6 = <java.lang.System: java.io.PrintStream out>";
+    "$stack6 = <java.lang.System: java.io.PrintStream out>" -> "virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(a)";
+    "virtualinvoke $stack6.<java.io.PrintStream: void println(int)>(a)" -> "return";
+}
